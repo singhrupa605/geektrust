@@ -1,0 +1,21 @@
+.dialogButtons
+{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.dialogButtons button
+{
+    background-color: #21443d !important;
+    font-family: 'Source Serif Pro',
+    serif !important; 
+}
+
+.dialogtitle
+{
+    
+    color: #21443d !important;
+    font-family: 'Source Serif Pro',
+    serif !important; 
+};

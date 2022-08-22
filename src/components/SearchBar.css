@@ -1,0 +1,16 @@
+.search
+{
+    width:50%;
+    align-self: center;
+    padding:1rem;
+    border: 1px solid rgb(164, 172, 164);
+    margin:0.8rem;
+    outline: none;
+    border-radius: 20px;
+
+}
+.search:focus
+{
+  border: 3px solid #8bb88e;
+}
+

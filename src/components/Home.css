@@ -1,0 +1,13 @@
+.checkbox {
+    transform: scale(1.08);
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .parent {
+    font-family: "Source Serif Pro", serif;
+  }
+  
