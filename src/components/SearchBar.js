@@ -1,5 +1,17 @@
-import "./SearchBar.css";
 import React from 'react';
+import { Input} from '@mui/material';
+
+const mycss = {
+  margin:"1rem", 
+  alignSelf:"center",
+   padding:"0.8rem",
+    width:"50%",
+   ".MuiInput-input":
+   {
+    color: "#FFFFFF" ,
+    textAlign:"center",
+   }
+}
 
 const SearchBar = ({
   searchtext,
@@ -7,16 +19,19 @@ const SearchBar = ({
   employees,
   setFilteredList,
 }) => {
-  const handleSearch = async (event) => {
+  const handleSearch = (event) => {
+
+   
+
     const value = event.target.value;
     setSearchText(value);
-    console.log("search :" + searchtext);
     if (searchtext) {
+      const text = searchtext.toLowerCase();
       const list = employees.filter((emp) => {
         return (
-          emp.role.includes(searchtext) ||
-          emp.email.includes(searchtext) ||
-          emp.name.includes(value)
+          emp.role.toLowerCase().includes(text) ||
+          emp.email.toLowerCase().includes(text) ||
+          emp.name.toLowerCase().includes(text)
         );
       });
       setFilteredList(list);
@@ -24,13 +39,17 @@ const SearchBar = ({
       setFilteredList(employees);
     }
   };
-  return (
-    <input
-      label="Search"
-      className="search"
-      onChange={handleSearch}
-      placeholder="Search by name , email or role"
-    />
+
+  return ( 
+<Input
+  onChange={handleSearch}
+  className="searchbox"
+  multiline
+  sx={mycss}
+  color="primary"
+  placeholder="Search by name , email or role"
+  value={searchtext}
+/>
   );
 };
 

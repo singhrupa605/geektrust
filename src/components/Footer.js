@@ -19,8 +19,8 @@ const Footer = ({
         <Button
           uppercase="false"
           className="deleteAll"
-          color="primary"
           onClick={deleteSelected}
+          color="secondary"
             
         >
           <DeleteSweepIcon sx={{marginRight:"0.5rem"}}

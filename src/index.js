@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import reportWebVitals from "./reportWebVitals";
 import { SnackbarProvider } from "notistack";
+import { ThemeProvider } from "@mui/system";
+import theme from "./theme";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -17,7 +19,10 @@ root.render(
       maxSnack={1}
       anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
     >
-        <App />
+       <ThemeProvider theme = {theme}>
+         <App />
+       </ThemeProvider>
+        
     </SnackbarProvider>
   </React.StrictMode>
 );

@@ -1,9 +1,11 @@
 .header {
     background-color: #16302b;
+    width: 100%;
+    padding-top: 1.5rem;
   }
   
   .heading {
     font-family: "Source Serif Pro", serif !important;
-    color: #b8d1ba;
+    color: #e0e7e1;
   }
   

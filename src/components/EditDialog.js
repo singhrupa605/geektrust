@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useSnackbar } from "notistack";
 import React from 'react';
 
-const EditDialog = ({ id, open, handleClose, employees, setEmployees }) => {
+const EditDialog = ({ id, open, handleClose, employees, setEmployees, filteredList, setFilteredList}) => {
   const employee = employees.find((emp) => emp.id === id);
   const { enqueueSnackbar } = useSnackbar();
 
@@ -49,7 +49,15 @@ const EditDialog = ({ id, open, handleClose, employees, setEmployees }) => {
         return emp;
       });
 
+      const filteredData = filteredList.map((emp) => {
+        if (emp.id === id) {
+          emp = { ...newData };
+        }
+        return emp;
+      });
+      
       setEmployees(newEmployees);
+      setFilteredList(filteredData)
       enqueueSnackbar("Data saved successfully", { variant: "success" });
       handleClose();
     }
@@ -104,7 +112,7 @@ const EditDialog = ({ id, open, handleClose, employees, setEmployees }) => {
           placeholder={employee.role}
         ></TextField>
         <Stack direction="row" className="dialogButtons">
-        <Button variant="contained" onClick={saveEdit}>Save</Button>
+        <Button variant="contained "  onClick={saveEdit}>Save</Button>
           <Button variant="contained"  onClick={handleClose}>Cancel</Button>
         </Stack>
       </DialogContent>

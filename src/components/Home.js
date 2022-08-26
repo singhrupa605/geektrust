@@ -9,7 +9,7 @@ import EditDialog from "./EditDialog";
 import { useSnackbar } from "notistack";
 import SearchBar from "./SearchBar";
 import React  from 'react';
-
+import {Box} from "@mui/material"
 const URL =
   "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json";
 
@@ -36,7 +36,9 @@ const Home = () => {
 
   const handleDelete = (id) => {
     const newList = employees.filter((emp) => emp.id !== id);
+    const newFilteredList = filteredList.filter((emp) => emp.id !== id);
     setEmployees(newList);
+    setFilteredList(newFilteredList);
     enqueueSnackbar("Data deleted successfully ", { variant: "success" });
   };
 
@@ -116,16 +118,15 @@ const Home = () => {
     : employees.slice(beginIndex, lastIndex);
 
   return (
-    <Container className="parent">
-      <Header />
+    <Box className="parent">
+    <Header />
+    <Container >
       <SearchBar
         employees={employees}
         searchtext={searchtext}
         setSearchText={setSearchText}
-        setEmployees={setEmployees}
         setFilteredList={setFilteredList}
       />
-
       <EmployeeTable
         isChecked={isChecked}
         handleDelete={handleDelete}
@@ -142,6 +143,8 @@ const Home = () => {
           id={idInEdit}
           employees={employees}
           setEmployees={setEmployees}
+          filteredList={filteredList}
+          setFilteredList={setFilteredList}
         />
       ) : null}
       <Footer
@@ -153,6 +156,7 @@ const Home = () => {
         deleteSelected={deleteSelected}
       />
     </Container>
+    </Box>
   );
 };
 
